@@ -53,7 +53,7 @@ const proxyRouter = new Router()
             } else if(proxyAll == 'yes' && line.startsWith('http')){ // https://yourproxy.com/?url=https://somevideo.m3u8&all=yes
               return `${isSupportHTTPS ? ctx.request.url.origin.replace("http://", "https://") : ctx.request.url.origin}?url=${line}`;
             }
-            return `?url=${targetUrlTrimmed}${line}${originUrl ?`&origin=${encodedOrigin}` : ""}${refererUrl ? `&referer=${encodedUrl}` : ""}${proxyAll ? `&all=${proxyAll}` : ""}`;
+            return `https://tommy0412-m3u8-proxy-44.deno.dev/?url=${targetUrlTrimmed}${line}${originUrl ?`&origin=${encodedOrigin}` : ""}${refererUrl ? `&referer=${encodedUrl}` : ""}${proxyAll ? `&all=${proxyAll}` : ""}`;
           })
           .join("\n");
         console.log(modifiedM3u8)
